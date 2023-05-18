@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, MetaData
 from create.create_db import db, engine, db_session
 
 
@@ -9,16 +9,19 @@ class Question(db):
     state = Column(String, nullable=False)
     question = Column(String, nullable=False)
 
+
 class QuestionSchema(Schema):
     id = fields.Int(dump_only=True)
     state = fields.Str()
     question = fields.Str()
 
+
 question_schema = QuestionSchema()
 questions_schema = QuestionSchema(many=True)
 
 # Создаем таблицы
-db.metadata.create_all(engine)
-db_session.commit()
+metadata = MetaData()
+# db.metadata.create_all(engine)
+# db_session.commit()
 
 

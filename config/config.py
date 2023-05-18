@@ -25,11 +25,18 @@ class ConfigClass:
 
     # НАСТРОЙКИ БАЗЫ ДАННЫХ
     SAVE_TO_DB_ENABLE = True
+
+    _DB_USER = env.str("DB_USER")
+    _DB_PASS = env.str("DB_PASS")
+    _DB_HOST = env.str("DB_HOST")
+    # _DB_HOST = "localhost"
+    _DB_NAME = env.str("DB_NAME")
     # Строка подключения к базе данных
     # DB_PATH = 'postgresql://postgres:postgres@localhost:5432/postgres'
     # DB_PATH = 'postgresql://aa:9541@localhost:5432/postgres'
     # DB_PATH = 'postgresql://bot:bot@172.19.0.2:5432/postgres'
-    DB_PATH = 'postgresql://bot:bot@pg:5432/postgres'
+    # DB_PATH = 'postgresql://bot:bot@pg:5432/postgres'
+    DB_PATH = f'postgresql://{_DB_USER}:{_DB_PASS}@{_DB_HOST}:5432/{_DB_NAME}'
 
     # Уровень логгера | по умолчанию включено INFO
     # LOG_LEVEL = "WARN"
