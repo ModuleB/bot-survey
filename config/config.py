@@ -29,7 +29,7 @@ class ConfigClass:
     _DB_USER = env.str("DB_USER")
     _DB_PASS = env.str("DB_PASS")
     _DB_HOST = env.str("DB_HOST")
-    # _DB_HOST = "localhost"
+    _DB_HOST = "localhost"
     _DB_NAME = env.str("DB_NAME")
     # Строка подключения к базе данных
     # DB_PATH = 'postgresql://postgres:postgres@localhost:5432/postgres'
