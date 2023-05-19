@@ -9,6 +9,7 @@ from create.container import user_service
 from create.container import question_service
 from create.create_data import create_data
 from utils.print_color import print_green, print_red
+from run import bot
 from config.config import config
 from bot.validators.user import full_name_verification, age_verification, email_verification, phone_verification, \
     city_verification

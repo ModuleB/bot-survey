@@ -29,5 +29,3 @@ class UserSchema(Schema):
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
-# db.metadata.create_all(engine)
-# db_session.commit()

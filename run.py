@@ -8,11 +8,14 @@ from aiogram.types import BotCommand
 from bot.handlers import test, admin, common
 from config.config import config
 from config.logger import logger_config
+from bot.dao.models.question_model import Question
 
 # Настройка логирования в stdout
 logger = logging.getLogger(__name__)
 logger_config(logger)
 
+# Создание бота
+bot = Bot(token=config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
 
 # Регистрация команд, отображаемых в интерфейсе Telegram
 async def set_commands(bot: Bot):
@@ -30,7 +33,6 @@ async def main():
     logger.info("Starting bot")
 
     # Объявление и инициализация объектов бота и диспетчера
-    bot = Bot(token=config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
     storage = MemoryStorage()
     dp = Dispatcher(bot, storage=storage)
 
